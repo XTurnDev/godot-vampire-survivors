@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://dvdmqchr8du7e"]
 
-[ext_resource type="Script" uid="uid://xo41tha0tjrk" path="res://scripts/player_movement.gd" id="1_g2els"]
+[ext_resource type="Script" uid="uid://xo41tha0tjrk" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://c78ibgro7dep4" path="res://sprites/Miner1.png" id="2_qlg0r"]
 [ext_resource type="Texture2D" uid="uid://beju3jcavrblq" path="res://sprites/Miner2.png" id="3_tuyoq"]
 [ext_resource type="Texture2D" uid="uid://u34310krqd55" path="res://sprites/Miner3.png" id="4_fjrip"]
@@ -36,13 +36,17 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qhqgy"]
 radius = 4.0
-height = 14.0
+height = 8.0
 
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
+z_index = 1
+y_sort_enabled = true
 script = ExtResource("1_g2els")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_g2els")
+offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
 shape = SubResource("CapsuleShape2D_qhqgy")

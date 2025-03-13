@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cnrnx86wtsfnr" path="res://sprites/forge.png" id="1_huql2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebsuy"]
-radius = 8.0
+radius = 5.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_cc85a"]
 radius = 14.0
@@ -13,12 +13,17 @@ radius = 14.0
 script = ExtResource("1_ebsuy")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 1
+y_sort_enabled = true
 texture = ExtResource("1_huql2")
+offset = Vector2(0, -8)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -7)
 shape = SubResource("CircleShape2D_ebsuy")
 
 [node name="InteractionArea" type="Area2D" parent="."]
+position = Vector2(0, -7)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
 shape = SubResource("CircleShape2D_cc85a")

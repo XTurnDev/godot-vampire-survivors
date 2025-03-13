@@ -3,6 +3,9 @@ extends CharacterBody2D
 @export var speed = 50
 @onready var player_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+@export var max_health = 100
+var health = 100
+
 func get_input():
 	var input_direction = Input.get_vector("move_left", "move_right", "move_up", "move_down")
 	velocity = input_direction * speed
