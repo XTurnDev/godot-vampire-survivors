@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddqngar1dajxc"]
+
+[ext_resource type="Script" uid="uid://doc6nfgum3yig" path="res://scripts/forge.gd" id="1_ebsuy"]
+[ext_resource type="Texture2D" uid="uid://cnrnx86wtsfnr" path="res://sprites/forge.png" id="1_huql2"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ebsuy"]
+radius = 8.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cc85a"]
+radius = 14.0
+
+[node name="Forge" type="StaticBody2D"]
+script = ExtResource("1_ebsuy")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_huql2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ebsuy")
+
+[node name="InteractionArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractionArea"]
+shape = SubResource("CircleShape2D_cc85a")
+
+[connection signal="body_entered" from="InteractionArea" to="." method="_on_interaction_area_body_entered"]
+[connection signal="body_exited" from="InteractionArea" to="." method="_on_interaction_area_body_exited"]
