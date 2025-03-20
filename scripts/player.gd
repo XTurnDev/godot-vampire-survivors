@@ -24,3 +24,15 @@ func _physics_process(delta):
 	get_input()
 	move_and_slide()
 	animate_when_moving()
+
+
+func _on_detect_area_body_entered(body: Node2D) -> void:
+	if body.is_in_group("interactable"):
+		print("interactable")
+		if body.is_in_group("forge"):
+			print("forgable")
+
+
+func _on_detect_area_body_exited(body: Node2D) -> void:
+	if body.is_in_group("interactable"):
+		print("not interactable")

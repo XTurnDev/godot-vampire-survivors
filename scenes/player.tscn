@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dvdmqchr8du7e"]
+[gd_scene load_steps=9 format=3 uid="uid://dvdmqchr8du7e"]
 
 [ext_resource type="Script" uid="uid://xo41tha0tjrk" path="res://scripts/player.gd" id="1_g2els"]
 [ext_resource type="Texture2D" uid="uid://c78ibgro7dep4" path="res://sprites/Miner1.png" id="2_qlg0r"]
@@ -38,6 +38,9 @@ animations = [{
 radius = 4.0
 height = 8.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_qlg0r"]
+radius = 19.0
+
 [node name="Player" type="CharacterBody2D" groups=["Player"]]
 z_index = 1
 y_sort_enabled = true
@@ -50,3 +53,12 @@ offset = Vector2(0, -8)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
 shape = SubResource("CapsuleShape2D_qhqgy")
+
+[node name="DetectArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectArea"]
+position = Vector2(0, -7)
+shape = SubResource("CircleShape2D_qlg0r")
+
+[connection signal="body_entered" from="DetectArea" to="." method="_on_detect_area_body_entered"]
+[connection signal="body_exited" from="DetectArea" to="." method="_on_detect_area_body_exited"]

@@ -9,7 +9,9 @@ extends Node2D
 
 var rng = RandomNumberGenerator.new()
 
-var timer: float = 3
+@export var spawnable_area: CollisionShape2D
+
+var spawner_timer: float = 3
 
 func _ready() -> void:
 	get_rarity()
@@ -38,6 +40,19 @@ func spawn_random_object(n):
 	
 	get_parent().call_deferred("add_child", instance)
 
-func RandomPosition(minX, maxX, minY, maxY):
-	position = Vector2(randi_range(minX, maxX), randi_range(minY, maxY))
+func get_random_position():
+	var min_x = spawnable_area.global_position.x - (spawnable_area.shape.size.x / 2)
+	var max_x = spawnable_area.global_position.x + (spawnable_area.shape.size.x / 2)
+	var min_y = spawnable_area.global_position.y - (spawnable_area.shape.size.y / 2)
+	var max_y = spawnable_area.global_position.y + (spawnable_area.shape.size.y / 2)
 	
+	return Vector2(randf_range(min_x, max_x), randf_range(min_y, max_y))
+
+func _physics_process(delta: float) -> void:
+	spawner_timer -= delta
+	if spawner_timer <= 0:
+		spawner_timer = 0
+		position = get_random_position()
+		get_rarity()
+		print("spawned")
+		spawner_timer = 3

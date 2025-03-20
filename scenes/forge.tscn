@@ -1,6 +1,5 @@
-[gd_scene load_steps=5 format=3 uid="uid://ddqngar1dajxc"]
+[gd_scene load_steps=4 format=3 uid="uid://ddqngar1dajxc"]
 
-[ext_resource type="Script" uid="uid://doc6nfgum3yig" path="res://scripts/forge.gd" id="1_ebsuy"]
 [ext_resource type="Texture2D" uid="uid://cnrnx86wtsfnr" path="res://sprites/forge.png" id="1_huql2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ebsuy"]
@@ -9,8 +8,7 @@ radius = 5.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_cc85a"]
 radius = 14.0
 
-[node name="Forge" type="StaticBody2D"]
-script = ExtResource("1_ebsuy")
+[node name="Forge" type="StaticBody2D" groups=["forge", "interactable"]]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 z_index = 1
