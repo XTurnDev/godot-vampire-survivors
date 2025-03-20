@@ -1,19 +1,22 @@
 extends Node2D
 
-@export var objects: Dictionary[String, PackedScene] = {}
+@export var objects: Dictionary[String, Resource] = {}
 
 @export var rarities = {"Common": 1000,
 				"Uncommon": 600,
 				"Rare": 300,
 				"Legendary": 100}
+				
+const ENEMY = preload("res://scenes/enemy.tscn")
 
 var rng = RandomNumberGenerator.new()
 
 @export var spawnable_area: CollisionShape2D
 
-var spawner_timer: float = 3
+@onready var timer: Timer = $Timer
 
 func _ready() -> void:
+	position = get_random_position()
 	get_rarity()
 
 func get_rarity():
@@ -36,9 +39,9 @@ func spawn_random_object(n):
 	if not objects.has(n):
 		return
 		
-	var instance = objects[n].instantiate()
+	var instance = ENEMY.instantiate()
 	instance.call_deferred("set_position", global_position)
-	
+	instance.stats = objects[n]
 	get_parent().call_deferred("add_child", instance)
 
 func get_random_position():
@@ -49,11 +52,9 @@ func get_random_position():
 	
 	return Vector2(randf_range(min_x, max_x), randf_range(min_y, max_y))
 
-func _physics_process(delta: float) -> void:
-	spawner_timer -= delta
-	if spawner_timer <= 0:
-		spawner_timer = 0
-		position = get_random_position()
-		get_rarity()
-		print("spawned")
-		spawner_timer = 3
+
+func _on_timer_timeout() -> void:
+	position = get_random_position()
+	get_rarity()
+	print("spawned")
+	timer.start()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c7es7cjmih4nl"]
+[gd_scene load_steps=17 format=3 uid="uid://c7es7cjmih4nl"]
 
 [ext_resource type="Texture2D" uid="uid://c5v7llcpsq6nf" path="res://sprites/tile-set.png" id="1_o5qli"]
 [ext_resource type="PackedScene" uid="uid://dvdmqchr8du7e" path="res://scenes/player.tscn" id="2_0wfyh"]
@@ -6,9 +6,7 @@
 [ext_resource type="Script" uid="uid://btoi4vmshy8s7" path="res://addons/phantom_camera/scripts/phantom_camera/phantom_camera_2d.gd" id="4_tefeu"]
 [ext_resource type="Script" uid="uid://dpl0kxf4j6k5n" path="res://addons/phantom_camera/scripts/resources/tween_resource.gd" id="5_o6xl0"]
 [ext_resource type="PackedScene" uid="uid://ddqngar1dajxc" path="res://scenes/forge.tscn" id="6_tefeu"]
-[ext_resource type="PackedScene" uid="uid://cl64kxn35odxl" path="res://scenes/ore_spawner.tscn" id="7_o6xl0"]
-[ext_resource type="PackedScene" uid="uid://dj1b73q8kwiep" path="res://scenes/enemy_spawner.tscn" id="8_tipki"]
-[ext_resource type="Script" uid="uid://b7rxxstp3gjm0" path="res://resources/enemy_stats.gd" id="9_trceg"]
+[ext_resource type="PackedScene" uid="uid://dj1b73q8kwiep" path="res://scenes/spawner.tscn" id="8_tipki"]
 [ext_resource type="Resource" uid="uid://biabcsoon0t1k" path="res://resources/enemies/snake.tres" id="10_a8y0u"]
 [ext_resource type="Resource" uid="uid://1eek0h0ipb5m" path="res://resources/enemies/fly.tres" id="11_jkv2x"]
 [ext_resource type="Resource" uid="uid://dxsg3l11fe2ck" path="res://resources/enemies/ghost.tres" id="12_jbj1t"]
@@ -117,14 +115,8 @@ position = Vector2(-56.5, 40.5)
 shape = SubResource("RectangleShape2D_o6xl0")
 disabled = true
 
-[node name="OreSpawner" parent="." node_paths=PackedStringArray("spawnable_area") instance=ExtResource("7_o6xl0")]
-rarities = {
-"Common": 1000
-}
-spawnable_area = NodePath("../spawn_area/CollisionShape2D")
-
 [node name="EnemySpawner" parent="." node_paths=PackedStringArray("spawnable_area") instance=ExtResource("8_tipki")]
-objects = Dictionary[String, ExtResource("9_trceg")]({
+objects = Dictionary[String, Resource]({
 "Common": ExtResource("10_a8y0u"),
 "Legendary": ExtResource("13_muem4"),
 "Rare": ExtResource("12_jbj1t"),

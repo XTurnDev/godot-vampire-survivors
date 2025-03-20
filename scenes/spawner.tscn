@@ -1,13 +1,14 @@
 [gd_scene load_steps=2 format=3 uid="uid://dj1b73q8kwiep"]
 
-[ext_resource type="Script" uid="uid://dcgi1macktccf" path="res://scripts/enemy_spawner.gd" id="1_ks1gq"]
+[ext_resource type="Script" uid="uid://dcgi1macktccf" path="res://scripts/spawner.gd" id="1_ks1gq"]
 
-[node name="EnemySpawner" type="Node2D"]
+[node name="Spawner" type="Node2D"]
 script = ExtResource("1_ks1gq")
 
 [node name="Timer" type="Timer" parent="."]
 process_callback = 0
 wait_time = 3.0
+one_shot = true
 autostart = true
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
