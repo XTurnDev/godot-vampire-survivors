@@ -34,9 +34,9 @@ func _physics_process(delta):
 	move_and_slide()
 	animate_when_moving()
 	if not taking_damage:
-		health += health_regen
+		health += health_regen * delta
 		if health == max_health:
-			health = max_health * delta
+			health = max_health
 
 func _on_detect_area_body_entered(body: Node2D) -> void:
 	if body.is_in_group("interactable"):
