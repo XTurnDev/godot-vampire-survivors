@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwh1b3scrqt3j"]
+
+[ext_resource type="Script" uid="uid://d0i0hkh03fh3r" path="res://scripts/enemy.gd" id="1_md0e3"]
+[ext_resource type="Texture2D" uid="uid://dxs1q14rskn5m" path="res://sprites/Fly.png" id="2_4ra3w"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uy6h"]
+radius = 4.0
+height = 10.0
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_md0e3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_4ra3w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_5uy6h")

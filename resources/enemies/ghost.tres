@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://dxsg3l11fe2ck"]
+
+[ext_resource type="Script" uid="uid://b7rxxstp3gjm0" path="res://resources/enemy_stats.gd" id="1_30hji"]
+[ext_resource type="Texture2D" uid="uid://ctcoc4mhug7hy" path="res://sprites/Ghost.png" id="2_6khb5"]
+
+[resource]
+script = ExtResource("1_30hji")
+sprite = ExtResource("2_6khb5")
+health = 50
+speed = 30
+damage = 25
+exp = 2
+metadata/_custom_type_script = "uid://b7rxxstp3gjm0"

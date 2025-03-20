@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://1eek0h0ipb5m"]
+
+[ext_resource type="Script" uid="uid://b7rxxstp3gjm0" path="res://resources/enemy_stats.gd" id="1_tv8a5"]
+[ext_resource type="Texture2D" uid="uid://dxs1q14rskn5m" path="res://sprites/Fly.png" id="2_hy2e5"]
+
+[resource]
+script = ExtResource("1_tv8a5")
+sprite = ExtResource("2_hy2e5")
+health = 20
+speed = 50
+damage = 10
+exp = 1
+metadata/_custom_type_script = "uid://b7rxxstp3gjm0"

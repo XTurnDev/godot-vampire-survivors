@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=3 format=3 uid="uid://cn8p2ney0lgxm"]
+
+[ext_resource type="Script" uid="uid://b7rxxstp3gjm0" path="res://resources/enemy_stats.gd" id="1_4stt2"]
+[ext_resource type="Texture2D" uid="uid://gy15p7y8o64w" path="res://sprites/Old Goblin.png" id="2_cot53"]
+
+[resource]
+script = ExtResource("1_4stt2")
+sprite = ExtResource("2_cot53")
+health = 100
+speed = 20
+damage = 50
+exp = 3
+metadata/_custom_type_script = "uid://b7rxxstp3gjm0"
