@@ -16,7 +16,7 @@ func _ready() -> void:
 	sprite.texture = stats.sprite
 	health = stats.health
 	exp_drop = stats.exp_drop
-	player = $Player
+	player = get_parent().find_child("Player")
 
 func _process(delta):
 	if player:

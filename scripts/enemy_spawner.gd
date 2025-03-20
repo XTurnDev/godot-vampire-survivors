@@ -13,9 +13,11 @@ var rng = RandomNumberGenerator.new()
 
 @export var spawnable_area: CollisionShape2D
 
-var spawner_timer: float = 3
+@onready var timer: Timer = $Timer
+
 
 func _ready() -> void:
+	position = get_random_position()
 	get_rarity()
 
 func get_rarity():
@@ -31,6 +33,7 @@ func get_rarity():
 	for n in (rarities):
 		if item <= rarities[n]:
 			spawn_random_object(n)
+			break
 		item -= rarities[n]
 
 func spawn_random_object(n):
@@ -50,11 +53,9 @@ func get_random_position():
 	
 	return Vector2(randf_range(min_x, max_x), randf_range(min_y, max_y))
 
-func _physics_process(delta: float) -> void:
-	spawner_timer -= delta
-	if spawner_timer <= 0:
-		spawner_timer = 0
-		position = get_random_position()
-		get_rarity()
-		print("spawned")
-		spawner_timer = 3
+
+func _on_timer_timeout() -> void:
+	position = get_random_position()
+	get_rarity()
+	print("spawned")
+	timer.start()

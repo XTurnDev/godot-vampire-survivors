@@ -29,6 +29,7 @@ func get_rarity():
 	for n in (rarities):
 		if item <= rarities[n]:
 			spawn_random_object(n)
+			break
 		item -= rarities[n]
 
 func spawn_random_object(n):
