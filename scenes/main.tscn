@@ -53,7 +53,7 @@ ease = 2
 size = Vector2(784, 384)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o6xl0"]
-size = Vector2(600, 300)
+size = Vector2(600.5, 300)
 
 [node name="Main" type="Node2D"]
 y_sort_enabled = true
@@ -73,7 +73,8 @@ position = Vector2(387, 182)
 
 [node name="Camera2D" type="Camera2D" parent="."]
 physics_interpolation_mode = 1
-position = Vector2(576, 324)
+position = Vector2(387, 182)
+zoom = Vector2(2, 2)
 process_callback = 0
 limit_left = 0
 limit_top = 0
@@ -87,10 +88,11 @@ script = ExtResource("3_tbgi4")
 
 [node name="PhantomCamera2D" type="Node2D" parent="." node_paths=PackedStringArray("follow_target")]
 top_level = true
-position = Vector2(576, 324)
+position = Vector2(387, 182)
 script = ExtResource("4_tefeu")
 follow_mode = 5
 follow_target = NodePath("../Player")
+zoom = Vector2(2, 2)
 tween_resource = SubResource("Resource_tbgi4")
 follow_damping = true
 follow_damping_value = Vector2(0.25, 0.25)
@@ -111,7 +113,7 @@ position = Vector2(389, 149)
 position = Vector2(444, 145)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="spawn_area"]
-position = Vector2(-56.5, 40.5)
+position = Vector2(-56.75, 40.5)
 shape = SubResource("RectangleShape2D_o6xl0")
 disabled = true
 
